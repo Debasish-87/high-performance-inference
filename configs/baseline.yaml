@@ -1,0 +1,30 @@
+project:
+  name: inference-performance-project
+  experiment: baseline
+
+model:
+  name: Qwen/Qwen3-0.6B
+  dtype: half
+  max_model_len: 2048
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  gpu_memory_utilization: 0.85
+  max_num_seqs: 8
+
+benchmark:
+  input_tokens: 256
+  output_tokens: 128
+  concurrency: [1, 2, 4, 8]
+  duration_seconds: 60
+
+metrics:
+  - ttft
+  - tpot
+  - output_throughput
+  - request_throughput
+  - p50_latency
+  - p95_latency
+  - p99_latency
+  - error_rate

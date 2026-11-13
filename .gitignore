@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model and benchmark artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.engine
+*.triton
+*.log
+
+# Generated results (keep folder structure)
+benchmarks/**/*
+!benchmarks/**/.gitkeep
+
+profiling/**/*
+!profiling/**/.gitkeep
+
+application_validation/**/*
+!application_validation/**/.gitkeep
+
+# OS / editor
+.DS_Store
+.vscode/

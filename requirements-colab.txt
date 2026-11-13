@@ -1,0 +1,7 @@
+# Install these in Google Colab only when the relevant phase starts.
+# vLLM and GuideLLM versions will be selected after checking
+# the Colab Python, CUDA and PyTorch environment.
+pyyaml
+pandas
+matplotlib
+requests
