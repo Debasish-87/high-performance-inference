@@ -1,30 +1,54 @@
+
 project:
-  name: inference-performance-project
+  name: high-performance-inference
   experiment: baseline
+
+runtime:
+  platform: google_colab
+  gpu: NVIDIA_T4
 
 model:
   name: Qwen/Qwen3-0.6B
-  dtype: half
-  max_model_len: 2048
+
+vllm:
+  mode: default
+  custom_flags: []
 
 server:
-  host: 0.0.0.0
-  port: 8000
-  gpu_memory_utilization: 0.85
-  max_num_seqs: 8
+  base_url: http://127.0.0.1:8000
 
-benchmark:
-  input_tokens: 256
-  output_tokens: 128
-  concurrency: [1, 2, 4, 8]
-  duration_seconds: 60
+baseline:
+  server_level:
+    enabled: true
+    tool: GuideLLM
+    input_tokens: 256
+    output_tokens: 128
+    concurrency: [1, 2, 4, 8]
+    duration_seconds: 60
+    output_directory: benchmarks/baseline
+
+  application_level:
+    enabled: true
+    tool: AnythingLLM
+    prompt_file: application_validation/prompts.txt
+    output_directory: application_validation/before
 
 metrics:
-  - ttft
-  - tpot
-  - output_throughput
-  - request_throughput
-  - p50_latency
-  - p95_latency
-  - p99_latency
-  - error_rate
+  server_level:
+    - ttft
+    - tpot
+    - output_throughput
+    - request_throughput
+    - p50_latency
+    - p95_latency
+    - p99_latency
+    - error_rate
+
+  application_level:
+    - request_latency
+    - p50_latency
+    - p95_latency
+    - p99_latency
+    - request_throughput
+    - error_rate
+    - source_count
