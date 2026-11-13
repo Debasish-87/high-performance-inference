@@ -1,0 +1,10 @@
+Explain how vLLM serves models through an OpenAI-compatible API.
+What are the main components involved in vLLM model serving?
+Describe the NVIDIA T4 GPU's key hardware specifications.
+What is the role of Tensor Cores in the NVIDIA T4?
+Explain CUDA's thread, block, and grid execution hierarchy.
+What is the difference between global memory and shared memory in CUDA?
+Explain how GPU memory bandwidth affects inference performance.
+How can batching improve LLM inference throughput?
+Based on the documents, explain the relationship between GPU architecture and inference optimization.
+What information is available in the documents about vLLM performance optimization?
