@@ -13,3 +13,7 @@ echo "Model: ${MODEL}"
 echo "No custom performance flags."
 
 exec vllm serve "${MODEL}"
+
+
+
+KdXIqGpb-NlK9ED6uBwjEHU1Lbb-6sS4fFnfA5iUdeE
